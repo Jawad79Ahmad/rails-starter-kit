@@ -4,3 +4,4 @@
 - Used tailwind css and cloned windmill template
 - Used view components, stimulus
 - Applied apline JS
+- Toggle theme mode
