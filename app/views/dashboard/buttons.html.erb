@@ -1,0 +1,51 @@
+<%= render Shared::Breadcrumb::Component.new(last_option: 'Buttons') %>
+
+<!-- Button sizes -->
+<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+  Sizes
+</h4>
+<div class="flex flex-col flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
+  <button class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    Larger button
+  </button>
+
+  <button class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    Large button
+  </button>
+
+  <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    Regular
+  </button>
+
+  <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg opacity-50 cursor-not-allowed focus:outline-none">
+    Disabled
+  </button>
+
+  <button class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-md active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    Small
+  </button>
+</div>
+
+<!-- Buttons with icons -->
+<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+  Icons
+</h4>
+<div class="flex flex-col flex-wrap mb-8 space-y-4 md:flex-row md:items-end md:space-x-4">
+  <button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    <span>Icon right</span>
+    <%= read_svg(name: 'heart', klass: 'w-4 h-4 ml-2 -mr-1') %>
+  </button>
+
+  <button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    <%= read_svg(name: 'heart', klass: 'w-4 h-4 mr-2 -ml-1') %>
+    <span>Icon left</span>
+  </button>
+
+  <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    <%= read_svg(name: 'heart', klass: 'w-5 h-5') %>
+  </button>
+
+  <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-full active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+    <%= read_svg(name: 'pencil', klass: 'w-5 h-5') %>
+  </button>
+</div>

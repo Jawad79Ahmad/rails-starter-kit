@@ -1,0 +1,20 @@
+<div x-data="{ is_<%= @name %>_dropdown_open: false}">
+  <button class="flex items-center"
+    @click="is_<%= @name %>_dropdown_open = !is_<%= @name %>_dropdown_open"
+    @keydown.escape="is_<%= @name %>_dropdown_open = false"
+  >
+    <%= @props[:button_data] %>
+  </button>
+
+  <ul class="absolute <%= @klass %> right-0 p-1 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+    x-show="is_<%= @name %>_dropdown_open"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    @click.away="is_<%= @name %>_dropdown_open = false"
+  >
+    <% @options.each do |item| %>
+      <%= Shared::Dropdown::Item::Component.new.item(link: item[:url], data: item[:content], klass: item[:klass]) %>
+    <% end %>
+  </ul>
+</div>

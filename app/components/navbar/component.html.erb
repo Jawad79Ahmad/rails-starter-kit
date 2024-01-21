@@ -1,0 +1,20 @@
+<header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+  <div class="flex items-center justify-between gap-4 h-full px-6 mx-auto text-cyan-600 dark:text-cyan-500">
+    <!-- Mobile hamburger -->
+    <%= render(Navbar::ToggleSidebarBtn::Component.new) %>
+    <!-- Search input -->
+    <div class="flex justify-center">
+      <%= Navbar::SearchInput::Component.new.call %>
+    </div>
+    <ul class="flex items-center flex-shrink-0 space-x-6">
+      <!-- Notifications menu -->
+      <li class="relative">
+        <%= render Shared::Dropdown::Component.new.nav_notifications %>
+      </li>
+
+      <li class="relative">
+        <%= render Shared::Dropdown::Component.new.nav_profile %>
+      </li>
+    </ul>
+  </div>
+</header>

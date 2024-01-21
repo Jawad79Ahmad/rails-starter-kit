@@ -1,0 +1,27 @@
+<aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
+  <div class="py-4 text-gray-500 dark:text-gray-400">
+    <div class='px-6 flex justify-between text-lg font-bold text-gray-800 dark:text-gray-200'>
+      <%= link_to root_path do %>
+        Rails Starter Kit
+      <% end %>
+      <%= render Sidebar::ToggleSidebarBtn::Component.new %>
+    </div>
+    <ul class="mt-6">
+      <% sidebar_options.each do |menu| %>
+        <% if menu[:menu_items] %>
+          <%= render Sidebar::SubMenu::Component.new(name: menu[:title], links: menu[:menu_items]) %>
+        <% else %>
+          <%= Sidebar::MenuLink::Component.new(link: menu[:url], name: menu[:title]).call %>
+        <% end %>
+      <% end %>
+    </ul>
+    <div class="px-6 my-6">
+      <button class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-cyan-600 border border-transparent rounded-lg active:bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:shadow-outline-cyan">
+        Create account
+        <span class="ml-2" aria-hidden="true">+</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<%= Backdrop::Component.new(name: 'sidebar', z_class: 'z-20').call %>

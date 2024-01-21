@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StarterKit</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body data-controller='toggle_theme'>
+    <div class="flex h-screen bg-gray-50 dark:bg-gray-900">
+      <%= render(Sidebar::Component.new) %>
+      <div class="flex flex-col flex-1 w-full">
+        <%= render(Navbar::Component.new) %>
+        <main class="h-full overflow-y-auto">
+          <div class=' mx-auto text-gray-800 dark:text-gray-200 py-6 sm:px-6 lg:px-8'>
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div><!-- Theme toggler -->
+    <div class="fixed right-6 bottom-2.5 z-50">
+      <%= Shared::ToggleTheme::Component.new.call %>
+    </div>
+  </body>
+</html>
