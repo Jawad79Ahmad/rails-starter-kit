@@ -5,3 +5,7 @@
 - Used view components, stimulus
 - Applied apline JS
 - Toggle theme mode
+
+### Authentication
+- Used devise for user authentication
+- Updated views
