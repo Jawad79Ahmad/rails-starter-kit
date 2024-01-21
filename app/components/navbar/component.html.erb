@@ -13,7 +13,18 @@
       </li>
 
       <li class="relative">
-        <%= render Shared::Dropdown::Component.new.nav_profile %>
+        <%= render Shared::Dropdown::Component.new(
+          name: 'profile',
+          props: {
+            options: [
+              { content: read_svg(klass: 'w-4 h-4 mr-3', name: 'profile') + content_tag(:span, 'Profile'), url: '#' },
+              { content: read_svg(klass: 'w-4 h-4 mr-3', name: 'setting') + content_tag(:span, 'Setting'), url: '#' },
+              { content: read_svg(klass: 'w-4 h-4 mr-3', name: 'logout') + content_tag(:span, 'Log out'), url: destroy_user_session_path, data_attr: { "turbo-method": :delete } }
+            ],
+            button_data: image_tag('https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82', class: 'object-cover w-8 h-8 rounded-full'),
+            klass: 'w-32'
+          }
+        ) %>
       </li>
     </ul>
   </div>

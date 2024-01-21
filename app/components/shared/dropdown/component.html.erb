@@ -14,7 +14,7 @@
     @click.away="is_<%= @name %>_dropdown_open = false"
   >
     <% @options.each do |item| %>
-      <%= Shared::Dropdown::Item::Component.new.item(link: item[:url], data: item[:content], klass: item[:klass]) %>
+      <%= Shared::Dropdown::Item::Component.new.item(link: item[:url], data: item[:content], klass: item[:klass], data_attr: item[:data_attr]) %>
     <% end %>
   </ul>
 </div>
