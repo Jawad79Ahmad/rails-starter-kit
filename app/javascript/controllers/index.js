@@ -11,4 +11,5 @@ const registerController = (name, controllerClass) => {
 
 registerController("hello", require("./hello_controller").default);
 registerController("toggle_theme", require("../../components/shared/toggle_theme/component").default);
+registerController("flash_message", require("../../components/shared/flash_message/component").default);
 registerController("toggle_sidebar_btn", require("../../components/navbar/toggle_sidebar_btn/component").default);

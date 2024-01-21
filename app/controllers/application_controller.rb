@@ -2,7 +2,7 @@
 
 # Application Controller
 class ApplicationController < ActionController::Base
-  before_action :set_current
+  before_action :set_current, :authenticate_user!
 
   def set_current
     Current.request = request
