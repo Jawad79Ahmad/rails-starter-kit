@@ -10,7 +10,7 @@ module Sidebar
 
       def initialize(name: '', klass: '', link: '#')
         super
-        @name = name
+        @name = name.to_s
         @klass = klass
         @link = link
       end

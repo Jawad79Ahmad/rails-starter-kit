@@ -13,7 +13,7 @@ module Shared
       def call
         content_tag(:div, class: 'flex px-5 py-3 border text-gray-600 dark:text-gray-300 border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700', aria: { label: 'Breadcrumb' }) do
           content_tag(:ol, class: 'inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse') do
-            dashboard_option + generate_lis(@options).join + last_li(@last_option)
+            dashboard_option + generate_lis(@options).join.html_safe + last_li(@last_option)
           end
         end + content_tag(:hr, '', class: 'border-gray-200 dark:border-gray-700 my-4')
       end
@@ -43,7 +43,7 @@ module Shared
         options.map do |option|
           content_tag(:li) do
             content_tag(:div, class: 'flex items-center') do
-              option_url = link_to option['title'], option['url'], class: 'ms-1 font-medium hover:text-gray-800 md:ms-2 dark:hover:text-white'
+              option_url = link_to option[:title], option[:url], class: 'ms-1 font-medium hover:text-gray-800 md:ms-2 dark:hover:text-white'
               arrow_right + option_url
             end
           end

@@ -7,7 +7,7 @@ module Sidebar
       class Component < BaseViewComponent
         def initialize(title: '', link: '#')
           super
-          @title = title
+          @title = title.to_s
           @link = link
         end
 

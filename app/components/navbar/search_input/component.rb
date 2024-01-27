@@ -17,7 +17,7 @@ module Navbar
       end
 
       def search_input_field
-        text_field_tag :main_search, '', autocomplete: 'off', class: 'w-full pl-8 p-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-cyan-300 focus:outline-none focus:shadow-outline-cyan form-input', placeholder: 'Search for projects'
+        text_field_tag :main_search, '', autocomplete: 'off', class: 'w-full pl-8 p-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border dark:border-gray-700 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-cyan-300 focus:outline-none focus:shadow-outline-cyan form-input', placeholder: 'Search for projects'
       end
     end
   end

@@ -1,9 +1,9 @@
 ## Rails Starter kit
 
 ### Dashboard Template
-- Used tailwind css and cloned windmill template
+- Used tailwind CSS and cloned windmill template
 - Used view components, stimulus
-- Applied apline JS
+- Applied alpine JS
 - Toggle theme mode
 
 ### Authentication

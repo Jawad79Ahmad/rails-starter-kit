@@ -1,0 +1,43 @@
+<%= render Shared::Breadcrumb::Component.new(
+  options: [{ title: 'Users', url: users_path }],
+  last_option: 'Index'
+) %>
+
+<div class="w-full overflow-hidden rounded-lg shadow-xs border border-gray-200 dark:border-gray-800">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-no-wrap shadow-2xl">
+      <thead>
+        <tr class="lg:text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+          <th class="px-4 py-3">ID</th>
+          <th class="px-4 py-3">Email</th>
+          <th class="px-4 py-3">Created at</th>
+          <th class="px-4 py-3">Updated at</th>
+          <th class="px-4 py-3 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+        <% @users.each do |user| %>
+          <tr class="text-gray-700 dark:text-gray-400">
+            <td class="px-4 py-3 text-md lg:text-sm">
+              <%= user.id %>
+            </td>
+            <td class="px-4 py-3 text-md lg:text-sm">
+              <%= user.email %>
+            </td>
+            <td class="px-4 py-3 text-md lg:text-sm">
+              <%= user.created_at.strftime('%a, %d %b %Y %I:%M %p') %>
+            </td>
+            <td class="px-4 py-3 text-md lg:text-sm">
+              <%= user.updated_at.strftime('%a, %d %b %Y %I:%M %p') %>
+            </td>
+            <td class="px-4 py-3 text-md lg:text-sm flex justify-center">
+              <%= link_to 'Show', user_path(user.id), class: 'px-2 py-1 border-t border-l border-b rounded-l-lg border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-gray-50' %>
+              <%= link_to 'Edit', edit_user_path(user.id), class: 'px-2 py-1 border border-green-700 text-green-700 hover:bg-green-700 hover:text-gray-50' %>
+              <%= link_to 'Destroy', user_path(user.id), data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'px-2 py-1 border-t border-b border-r rounded-r-lg border-red-700 text-red-700 hover:bg-red-700 hover:text-gray-50' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
