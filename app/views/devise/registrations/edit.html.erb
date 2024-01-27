@@ -1,5 +1,5 @@
 <div class='w-full flex justify-center'>
-  <div class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <div class="w-1/2 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'space-y-4' }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <h5 class="text-xl mb-4 text-center font-medium text-gray-700 dark:text-white">Edit <%= resource_name.to_s.humanize %></h5>
@@ -12,25 +12,12 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div>
-        <%= f.label :password, class: 'block mb-2 text-sm font-medium text-gray-700 dark:text-white' %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, class: 'block w-full mt-1 px-3 py-2 dark:border-gray-600 dark:bg-gray-700 border rounded-md border-cyan-700 focus:outline-none dark:text-gray-300 form-input', autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <em class='text-gray-700 dark:text-gray-50'><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-      </div>
+      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :current_password } } %>
 
-      <div>
-        <%= f.label :password_confirmation, class: 'block mb-2 text-sm font-medium text-gray-700 dark:text-white' %>
-        <%= f.password_field :password_confirmation, class: 'block w-full mt-1 px-3 py-2 dark:border-gray-600 dark:bg-gray-700 border rounded-md border-cyan-700 focus:outline-none dark:text-gray-300 form-input', autocomplete: "new-password" %>
-      </div>
+      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password, label: :new_password } } %>
+      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password_confirmation } } %>
 
-      <div>
-        <%= f.label :current_password, class: 'block mb-2 text-sm font-medium text-gray-700 dark:text-white' %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, class: 'block w-full mt-1 px-3 py-2 dark:border-gray-600 dark:bg-gray-700 border rounded-md border-cyan-700 focus:outline-none dark:text-gray-300 form-input', autocomplete: "current-password" %>
-      </div>
-
-      <%= f.submit 'Update', class: 'w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
+      <%= render partial: 'devise/shared/submit_btn', locals: { f: f, name: 'Update' } %>
 
       <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800' %>
     <% end %>

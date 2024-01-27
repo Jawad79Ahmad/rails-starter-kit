@@ -25,10 +25,10 @@
               <%= user.email %>
             </td>
             <td class="px-4 py-3 text-md lg:text-sm">
-              <%= user.created_at.strftime('%a, %d %b %Y %I:%M %p') %>
+              <%= Formatter.date_for_view(user.created_at) %>
             </td>
             <td class="px-4 py-3 text-md lg:text-sm">
-              <%= user.updated_at.strftime('%a, %d %b %Y %I:%M %p') %>
+              <%= Formatter.date_for_view(user.updated_at) %>
             </td>
             <td class="px-4 py-3 text-md lg:text-sm flex justify-center">
               <%= link_to 'Show', user_path(user.id), class: 'px-2 py-1 border-t border-l border-b rounded-l-lg border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-gray-50' %>

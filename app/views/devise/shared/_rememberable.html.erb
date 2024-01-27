@@ -1,0 +1,6 @@
+<% if devise_mapping.rememberable? %>
+  <div class="field">
+    <%= f.check_box :remember_me, class: 'w-3 h-3 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800' %>
+    <%= f.label :remember_me, class: 'font-light text-gray-500 dark:text-gray-300' %>
+  </div>
+<% end %>
