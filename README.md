@@ -8,4 +8,5 @@
 
 ### Authentication
 - Used devise for user authentication
+- Added confirmable, lockable and trackable
 - Updated views
