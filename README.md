@@ -5,6 +5,7 @@
 - Used view components, stimulus
 - Applied alpine JS
 - Toggle theme mode
+- Used font-awesome icons
 
 ### Authentication
 - Used devise for user authentication
