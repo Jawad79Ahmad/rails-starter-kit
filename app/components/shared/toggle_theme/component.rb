@@ -5,8 +5,8 @@ module Shared
     # ToggleTheme Component
     class Component < BaseViewComponent
       def call
-        moon_icon = read_svg(name: 'moon', id: 'theme-toggle-dark-icon', klass: 'hidden w-8 h-8')
-        sun_icon = read_svg(name: 'sun', id: 'theme-toggle-light-icon', klass: 'hidden w-8 h-8')
+        moon_icon = content_tag(:i, '', class: 'hidden w-8 h-8 fa-regular fa-moon', id: 'theme-toggle-dark-icon')
+        sun_icon = content_tag(:i, '', class: 'hidden w-8 h-8 fa-regular fa-sun', id: 'theme-toggle-light-icon')
         button_tag(
           type: 'button', id: 'theme-toggle',
           class: 'text-cyan-600 hover:text-cyan-700 dark:text-cyan-700 dark:hover:text-cyan-800',

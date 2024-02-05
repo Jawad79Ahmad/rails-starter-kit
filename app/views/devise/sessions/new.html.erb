@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'space-y-2 md:space-y-4' }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= render partial: 'devise/shared/fields/email', locals: { f: f } %>
+  <%= render partial: 'devise/shared/fields/text', locals: { f: f, props: { name: :username } } %>
   <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password } } %>
 
   <%= render partial: 'devise/shared/rememberable', locals: { f: f } %>

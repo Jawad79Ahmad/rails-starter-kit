@@ -3,23 +3,29 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'space-y-4' }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <h5 class="text-xl mb-4 text-center font-medium text-gray-700 dark:text-white">Edit <%= resource_name.to_s.humanize %></h5>
-      <div>
-        <%= f.label :email, class: 'block mb-2 text-sm font-medium text-gray-700 dark:text-white' %>
-        <%= f.email_field :email, class: 'block w-full mt-1 px-3 py-2 dark:border-gray-600 dark:bg-gray-700 border rounded-md border-cyan-700 focus:outline-none dark:text-gray-300 form-input', autofocus: true, autocomplete: "email" %>
+
+      <div class='flex gap-4'>
+        <%= render partial: 'devise/shared/fields/text', locals: { f: f, props: { name: :first_name, label: 'First Name' } } %>
+        <%= render partial: 'devise/shared/fields/text', locals: { f: f, props: { name: :last_name, label: 'Last Name' } } %>
       </div>
+
+      <%= render partial: 'devise/shared/fields/email', locals: { f: f } %>
+      <%= render partial: 'devise/shared/fields/text', locals: { f: f, props: { name: :phone_number, label: 'Phone Number' } } %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :current_password } } %>
+      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :current_password, label: 'Current Password' } } %>
 
-      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password, label: :new_password } } %>
-      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password_confirmation } } %>
+      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password, label: 'New Password' } } %>
+      <%= render partial: 'devise/shared/fields/password', locals: { f: f, props: { name: :password_confirmation, label: 'Password Confirmation' } } %>
+
+  <%= render partial: 'devise/shared/fields/gender', locals: { f: f } %>
 
       <%= render partial: 'devise/shared/submit_btn', locals: { f: f, name: 'Update' } %>
 
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800' %>
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800' %>
     <% end %>
   </div>
 </div>

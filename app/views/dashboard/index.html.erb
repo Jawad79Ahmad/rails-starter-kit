@@ -2,10 +2,10 @@
 
 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
   <!-- Card -->
-  <%= Shared::Card::Component.new.dashboard(color: 'orange', svg_name: 'users', title: 'Total Client', count: '6389') %>
-  <%= Shared::Card::Component.new.dashboard(color: 'green', svg_name: 'cash', title: 'Account Balance', count: '$ 46,760.89') %>
-  <%= Shared::Card::Component.new.dashboard(color: 'blue', svg_name: 'cart', title: 'New Sales', count: '375') %>
-  <%= Shared::Card::Component.new.dashboard(color: 'teal', svg_name: 'message', title: 'Pending Contacts', count: '45') %>
+  <%= Shared::Card::Component.new.dashboard(color: 'orange', fa_icon: 'fa-solid fa-users', title: 'Total Client', count: '6389') %>
+  <%= Shared::Card::Component.new.dashboard(color: 'green', fa_icon: 'fa-solid fa-money-bills', title: 'Account Balance', count: '$ 46,760.89') %>
+  <%= Shared::Card::Component.new.dashboard(color: 'blue', fa_icon: 'fa-solid fa-cart-shopping', title: 'New Sales', count: '375') %>
+  <%= Shared::Card::Component.new.dashboard(color: 'teal', fa_icon: 'fa-solid fa-envelope', title: 'Pending Contacts', count: '45') %>
 </div>
 
 <div class="w-full overflow-hidden rounded-lg shadow-xs border border-gray-200 dark:border-gray-800">

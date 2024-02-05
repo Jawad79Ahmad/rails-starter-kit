@@ -50,7 +50,7 @@ module Shared
 
       def cross_btn(klass: '')
         button_tag(type: 'button', class: "#{CROSS_BTN} #{klass}", data: { action: 'click->flash_message#close' }) do
-          read_svg(name: 'cross', klass: 'h-3 w-3')
+          content_tag(:i, '', class: 'w-4 h-4 fa-solid fa-xmark')
         end
       end
     end

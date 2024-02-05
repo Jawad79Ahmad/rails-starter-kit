@@ -24,7 +24,7 @@ module Shared
         dashboard_name = 'Dashboard'
         content_tag(:li, class: 'inline-flex items-center') do
           link_to(dashboard_path, class: 'inline-flex items-center font-medium hover:text-gray-800 dark:hover:text-white') do
-            read_svg(name: 'home', klass: 'w-5 h-5 me-2.5') + dashboard_name
+            content_tag(:i, '', class: 'w-4 h-4 me-2.5 fa-solid fa-house') + dashboard_name
           end
         end
       end
@@ -51,7 +51,7 @@ module Shared
       end
 
       def arrow_right
-        read_svg(name: 'arrow-right', klass: 'block w-5 h-5 mx-1 text-gray-400')
+        content_tag(:i, '', class: 'block w-4 h-4 text-gray-400 fa-solid fa-angle-right')
       end
     end
   end

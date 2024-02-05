@@ -1,7 +1,11 @@
-<header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-  <div class="flex items-center justify-between gap-4 h-full px-6 mx-auto text-cyan-600 dark:text-cyan-500">
-    <!-- Mobile hamburger -->
-    <%= render(Navbar::ToggleSidebarBtn::Component.new) %>
+<header class="z-30 fixed top-0 w-full bg-gray-100 dark:bg-gray-800">
+  <div class="flex items-center justify-between gap-4 px-6 py-2 mx-auto text-cyan-600 dark:text-cyan-500">
+    <div class='flex justify-items-center gap-4'>
+      <%= render(Navbar::ToggleSidebarBtn::Component.new) %>
+      <%= link_to root_path, class: 'flex justify-between text-lg font-bold text-gray-800 dark:text-gray-200' do %>
+        Rails Starter Kit
+      <% end %>
+    </div>
     <!-- Search input -->
     <div class="flex justify-center">
       <%= Navbar::SearchInput::Component.new.call %>
@@ -17,9 +21,9 @@
           name: 'profile',
           props: {
             options: [
-              { content: read_svg(klass: 'w-4 h-4 mr-3', name: 'profile') + content_tag(:span, 'Profile'), url: '#' },
-              { content: read_svg(klass: 'w-4 h-4 mr-3', name: 'setting') + content_tag(:span, 'Setting'), url: '#' },
-              { content: read_svg(klass: 'w-4 h-4 mr-3', name: 'logout') + content_tag(:span, 'Log out'), url: destroy_user_session_path, data_attr: { "turbo-method": :delete } }
+              { content: content_tag(:i, '', class: 'w-4 h-4 mr-3 fa-regular fa-user') + content_tag(:span, 'Profile'), url: '#' },
+              { content: content_tag(:i, '', class: 'w-4 h-4 mr-3 fa-solid fa-gear') + content_tag(:span, 'Setting'), url: '#' },
+              { content: content_tag(:i, '', class: 'w-4 h-4 mr-3 fa-solid fa-arrow-right-from-bracket') + content_tag(:span, 'Log out'), url: destroy_user_session_path, data_attr: { "turbo-method": :delete } }
             ],
             button_data: image_tag('https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82', class: 'object-cover w-8 h-8 rounded-full'),
             klass: 'w-32'
