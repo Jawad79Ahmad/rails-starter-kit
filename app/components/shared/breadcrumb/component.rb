@@ -11,7 +11,7 @@ module Shared
       end
 
       def call
-        content_tag(:div, class: 'flex px-5 py-3 border text-gray-600 dark:text-gray-300 border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700', aria: { label: 'Breadcrumb' }) do
+        content_tag(:div, class: 'flex px-5 py-3 border text-sm -mt-2 text-gray-600 dark:text-gray-300 border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700', aria: { label: 'Breadcrumb' }) do
           content_tag(:ol, class: 'inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse') do
             dashboard_option + generate_lis(@options).join.html_safe + last_li(@last_option)
           end
