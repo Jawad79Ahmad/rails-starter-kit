@@ -16,11 +16,10 @@ module ApplicationHelper
 
   def sidebar_options
     [
-      { title: :home, url: dashboard_path }, { title: :users, url: users_path }, { title: :form, url: form_path },
-      { title: :cards, url: cards_path }, { title: :charts, url: charts_path }, { title: :buttons, url: buttons_path },
-      { title: :modals, url: modals_path },
-      { title: :tables, url: tables_path },
-      { title: :pages, menu_items: [
+      { title: :home, url: dashboard_path, fa_icon: 'fa-solid fa-house' }, { title: :users, url: users_path, fa_icon: 'fa-solid fa-users' }, { title: :form, url: form_path, fa_icon: 'fa-brands fa-wpforms' },
+      { title: :cards, url: cards_path, fa_icon: 'fa-solid fa-id-card-clip' }, { title: :charts, url: charts_path, fa_icon: 'fa-solid fa-chart-pie' }, { title: :buttons, url: buttons_path, fa_icon: 'fa-solid fa-arrow-pointer' },
+      { title: :modals, url: modals_path, fa_icon: 'fa-solid fa-clone' }, { title: :tables, url: tables_path, fa_icon: 'fa-solid fa-table' },
+      { title: :pages, fa_icon: 'fa-solid fa-object-group', menu_items: [
         { title: 'login', url: '#' }, { title: 'create account', url: '#' }, { title: 'forget password', url: '#' },
         { title: '404', url: '#' }, { title: 'blank', url: '#' }
       ] }

@@ -2,7 +2,13 @@
 
 # Formatter
 class Formatter
-  def self.date_for_view(date)
+  def self.date(date)
+    date.strftime('%a, %d %b %Y')
+  rescue StandardError
+    ''
+  end
+
+  def self.datetime(date)
     date.strftime('%a, %d %b %Y %I:%M %p')
   rescue StandardError
     ''

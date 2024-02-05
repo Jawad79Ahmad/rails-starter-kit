@@ -3,41 +3,60 @@
   last_option: 'Index'
 ) %>
 
-<div class="w-full overflow-hidden rounded-lg shadow-xs border border-gray-200 dark:border-gray-800">
-  <div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap shadow-2xl">
-      <thead>
-        <tr class="lg:text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-          <th class="px-4 py-3">ID</th>
-          <th class="px-4 py-3">Email</th>
-          <th class="px-4 py-3">Created at</th>
-          <th class="px-4 py-3">Updated at</th>
-          <th class="px-4 py-3 text-center">Actions</th>
+<div class="flex border border-gray-200 dark:border-gray-800 rounded-lg overflow-x-auto">
+  <table class="shadow-2xl text-normal lg:text-sm rounded-lg shadow-xs w-full">
+    <thead>
+      <tr class="tracking-wide text-left text-gray-500 border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+        <td class="px-4 py-3">Profile</td>
+        <td class="px-4 py-3">Email</td>
+        <td class="px-4 py-3">Phone Number</td>
+        <td class="px-4 py-3 text-center">Gender</td>
+        <td class="px-4 py-3 text-center">Status</td>
+        <td class="px-4 py-3 text-center">Created at</td>
+        <td class="px-4 py-3 text-center">Updated at</td>
+        <td class="px-4 py-3 text-center">Actions</td>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+      <% @users.each do |user| %>
+        <tr class="text-gray-700 dark:text-gray-400">
+          <td class="px-4 py-3">
+            <div>
+              <p class="font-semibold"><%= user.name %></p>
+              <p class="text-xs text-gray-600 dark:text-gray-400">
+                <%= user.username %>
+              </p>
+            </div>
+          </td>
+          <td class="px-4 py-3">
+            <%= user.email %>
+          </td>
+          <td class="px-4 py-3">
+            <%= user.phone_number %>
+          </td>
+          <td class="px-4 py-3 text-center">
+            <%= user.gender || 'N / A' %>
+          </td>
+          <td class="px-4 py-3 text-center">
+            <% status_class = user.confirmed? ? 'text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-100' : 'text-red-700 bg-red-100 dark:bg-red-700 dark:text-red-100' %>
+            <% status_name = user.confirmed? ? 'Active' : 'Inactive' %>
+            <span class="px-2 py-1 rounded-full text-center <%= status_class %>">
+              <%= status_name %>
+            </span>
+          </td>
+          <td class="px-4 py-3">
+            <%= Formatter.date(user.created_at) %>
+          </td>
+          <td class="px-4 py-3">
+            <%= Formatter.date(user.updated_at) %>
+          </td>
+          <td class="px-4 py-3 flex justify-center">
+            <%= link_to 'Show', user_path(user.id), class: 'px-2 py-1 border-t border-l border-b rounded-l-lg border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-gray-50' %>
+            <%= link_to 'Edit', edit_user_path(user.id), class: 'px-2 py-1 border border-green-700 text-green-700 hover:bg-green-700 hover:text-gray-50' %>
+            <%= link_to 'Destroy', user_path(user.id), data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'px-2 py-1 border-t border-b border-r rounded-r-lg border-red-700 text-red-700 hover:bg-red-700 hover:text-gray-50' %>
+          </td>
         </tr>
-      </thead>
-      <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        <% @users.each do |user| %>
-          <tr class="text-gray-700 dark:text-gray-400">
-            <td class="px-4 py-3 text-md lg:text-sm">
-              <%= user.id %>
-            </td>
-            <td class="px-4 py-3 text-md lg:text-sm">
-              <%= user.email %>
-            </td>
-            <td class="px-4 py-3 text-md lg:text-sm">
-              <%= Formatter.date_for_view(user.created_at) %>
-            </td>
-            <td class="px-4 py-3 text-md lg:text-sm">
-              <%= Formatter.date_for_view(user.updated_at) %>
-            </td>
-            <td class="px-4 py-3 text-md lg:text-sm flex justify-center">
-              <%= link_to 'Show', user_path(user.id), class: 'px-2 py-1 border-t border-l border-b rounded-l-lg border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-gray-50' %>
-              <%= link_to 'Edit', edit_user_path(user.id), class: 'px-2 py-1 border border-green-700 text-green-700 hover:bg-green-700 hover:text-gray-50' %>
-              <%= link_to 'Destroy', user_path(user.id), data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'px-2 py-1 border-t border-b border-r rounded-r-lg border-red-700 text-red-700 hover:bg-red-700 hover:text-gray-50' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,20 +1,20 @@
 <li class="relative px-3 py-1" x-data="{ sidebar_<%= @name %>_menu: false}">
-  <button class="px-3 py-2 inline-flex items-center justify-between w-full font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg"
+  <button class="px-3 py-2 inline-flex items-center justify-between w-full font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg"
     @click="sidebar_<%= @name %>_menu = !sidebar_<%= @name %>_menu"
     @keydown.escape="sidebar_<%= @name %>_menu = false"
   >
     <span class="inline-flex items-center">
-      <%= read_svg(klass: 'w-5 h-5', name: @name) %>
+      <%= content_tag(:i, '', class: "w-5 #{@fa_icon}") %>
       <span class="ml-4"><%= @name.titleize %></span>
     </span>
     <div x-show=<%= "!sidebar_#{@name}_menu" %>>
-      <%= read_svg(name: 'arrow-down', klass: 'w-5 h-5') %>
+      <%= content_tag(:i, '', class: 'w-5 fa-solid fa-angle-down') %>
     </div>
     <div x-show=<%= "sidebar_#{@name}_menu" %>>
-      <%= read_svg(name: 'arrow-up', klass: 'w-5 h-5') %>
+      <%= content_tag(:i, '', class: 'w-5 fa-solid fa-angle-up') %>
     </div>
   </button>
-  <ul class="p-2 mt-2 space-y-2 overflow-hidden font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+  <ul class="p-2 mt-2 space-y-2 overflow-hidden font-medium text-gray-500 rounded-md shadow-inner bg-gray-200 dark:text-gray-400 dark:bg-gray-900"
     x-show="sidebar_<%= @name %>_menu"
     @click.away="sidebar_<%= @name %>_menu = false"
     x-transition:enter="transition-all ease-in-out duration-300"
